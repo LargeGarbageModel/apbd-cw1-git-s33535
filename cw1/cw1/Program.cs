@@ -1,7 +1,7 @@
 ﻿Console.Write("Enter first number: ");
 double num1 = double.Parse(Console.ReadLine()!);
 
-Console.Write("Enter operator (+ or -): ");
+Console.Write("Enter operator (+, -, *, /): ");
 string op = Console.ReadLine()!.Trim();
 
 Console.Write("Enter second number: ");
