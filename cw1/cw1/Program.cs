@@ -30,7 +30,42 @@ switch (choice)
         break;
 
     case "2":
-        Console.WriteLine("Average Calculator is not implemented yet.");
+        double sum = 0;
+        int count = 0;
+
+        Console.WriteLine("Enter numbers one by one.");
+        Console.WriteLine("Enter '.' to calculate the average.");
+
+        while (true)
+        {
+            Console.Write("Enter a number (or '.'): ");
+            string input = Console.ReadLine()!.Trim();
+
+            if (input == ".")
+            {
+                break;
+            }
+
+            if (double.TryParse(input, out double number))
+            {
+                sum += number;
+                count++;
+            }
+            else
+            {
+                Console.WriteLine("Invalid number. Please try again.");
+            }
+        }
+
+        if (count > 0)
+        {
+            double average = sum / count;
+            Console.WriteLine($"Average: {average}");
+        }
+        else
+        {
+            Console.WriteLine("No numbers were entered.");
+        }
         break;
 
     default:
