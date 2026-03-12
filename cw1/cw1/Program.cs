@@ -1,6 +1,7 @@
 ﻿Console.WriteLine("Select a program:");
 Console.WriteLine("1. Calculator");
 Console.WriteLine("2. Average Calculator");
+Console.WriteLine("3. Maximum Calculator");
 Console.Write("Enter your choice: ");
 
 string choice = Console.ReadLine()!.Trim();
@@ -61,6 +62,45 @@ switch (choice)
         {
             double average = sum / count;
             Console.WriteLine($"Average: {average}");
+        }
+        else
+        {
+            Console.WriteLine("No numbers were entered.");
+        }
+        break;
+
+    case "3":
+        double? max = null;
+
+        Console.WriteLine("Enter numbers one by one.");
+        Console.WriteLine("Enter '.' to calculate the maximum.");
+
+        while (true)
+        {
+            Console.Write("Enter a number (or '.'): ");
+            string input = Console.ReadLine()!.Trim();
+
+            if (input == ".")
+            {
+                break;
+            }
+
+            if (double.TryParse(input, out double number))
+            {
+                if (max is null || number > max.Value)
+                {
+                    max = number;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid number. Please try again.");
+            }
+        }
+
+        if (max is not null)
+        {
+            Console.WriteLine($"Maximum: {max.Value}");
         }
         else
         {
