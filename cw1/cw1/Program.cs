@@ -1,5 +1,5 @@
 ﻿Console.WriteLine("Select a program:");
-Console.WriteLine("1. Calculator");
+Console.WriteLine("1. Standard Calculator");
 Console.WriteLine("2. Average Calculator");
 Console.WriteLine("3. Maximum Calculator");
 Console.WriteLine("4. Minimum Calculator");
@@ -25,6 +25,7 @@ switch (choice)
             "-" => num1 - num2,
             "*" => num1 * num2,
             "/" => num1 / num2,
+            "%" => num1 % num2,
             _ => throw new InvalidOperationException($"Unknown operator '{op}'")
         };
 
