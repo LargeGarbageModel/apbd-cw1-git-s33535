@@ -2,6 +2,7 @@
 Console.WriteLine("1. Calculator");
 Console.WriteLine("2. Average Calculator");
 Console.WriteLine("3. Maximum Calculator");
+Console.WriteLine("4. Minimum Calculator");
 Console.Write("Enter your choice: ");
 
 string choice = Console.ReadLine()!.Trim();
@@ -101,6 +102,45 @@ switch (choice)
         if (max is not null)
         {
             Console.WriteLine($"Maximum: {max.Value}");
+        }
+        else
+        {
+            Console.WriteLine("No numbers were entered.");
+        }
+        break;
+
+    case "4":
+        double? min = null;
+
+        Console.WriteLine("Enter numbers one by one.");
+        Console.WriteLine("Enter '.' to calculate the minimum.");
+
+        while (true)
+        {
+            Console.Write("Enter a number (or '.'): ");
+            string input = Console.ReadLine()!.Trim();
+
+            if (input == ".")
+            {
+                break;
+            }
+
+            if (double.TryParse(input, out double number))
+            {
+                if (min is null || number < min.Value)
+                {
+                    min = number;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid number. Please try again.");
+            }
+        }
+
+        if (min is not null)
+        {
+            Console.WriteLine($"Minimum: {min.Value}");
         }
         else
         {
