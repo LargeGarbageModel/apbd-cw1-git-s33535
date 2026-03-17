@@ -1,5 +1,5 @@
 ﻿Console.WriteLine("Select a program:");
-Console.WriteLine("1. Calculator");
+Console.WriteLine("1. Regular Calculator");
 Console.WriteLine("2. Average Calculator");
 Console.WriteLine("3. Maximum Calculator");
 Console.WriteLine("4. Minimum Calculator");
@@ -18,15 +18,31 @@ switch (choice)
 
         Console.Write("Enter second number: ");
         double num2 = double.Parse(Console.ReadLine()!);
-
-        double result = op switch
+        double result;
+        switch (op)
         {
-            "+" => num1 + num2,
-            "-" => num1 - num2,
-            "*" => num1 * num2,
-            "/" => num1 / num2,
-            _ => throw new InvalidOperationException($"Unknown operator '{op}'")
-        };
+            case "+":
+                result = num1 + num2;
+                break;
+            case "-":
+                result = num1 - num2;
+                break;
+            case "*":
+                result = num1 * num2;
+                break;
+            case "/":
+                result = num1 / num2;
+                break;
+            case "%":
+                result = num1 % num2;
+                break;
+            case "^":
+                result = Math.Pow(num1, num2);
+                break;
+            default:
+                Console.WriteLine("Invalid operator.");
+                return;
+        }
 
         Console.WriteLine($"{num1} {op} {num2} = {result}");
         break;
